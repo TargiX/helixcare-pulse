@@ -1,0 +1,28 @@
+---
+import { solutions } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="block" id="solutions" aria-labelledby="solutions-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Solutions</span>
+        <h2 id="solutions-title">AI solutions purpose-built for healthcare impact</h2>
+      </div>
+      <a class="btn btn-outline" href="#contact">View All Solutions <span class="arrow">-&gt;</span></a>
+    </div>
+    <div class="sol-grid">
+      {
+        solutions.map((solution) => (
+          <article class="sol-card">
+            <span class="ic"><Icon name={solution.icon} size={24} strokeWidth={1.8} /></span>
+            <h3>{solution.title}</h3>
+            <p>{solution.text}</p>
+            <a href="#contact" class="learn">Learn More <span class="arrow">-&gt;</span></a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

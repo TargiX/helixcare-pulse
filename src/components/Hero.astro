@@ -1,0 +1,42 @@
+---
+import { heroFeatures } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="hero-kicker">
+        <span class="ecg-wrap" aria-hidden="true">
+          <svg class="ecg" viewBox="0 0 128 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M0 13 H14 l3 -8 l3 16 l4 -8 H64 M64 13 H78 l3 -8 l3 16 l4 -8 H128"></path>
+          </svg>
+        </span>
+        <span class="ktext"><b>Live</b> &middot; AI healthcare intelligence</span>
+      </div>
+
+      <h1 id="hero-title">Clinical clarity.<br />Operational impact.<br /><span class="accent">Better outcomes.</span></h1>
+      <p class="hero-p">
+        HelixCare Pulse unifies clinical, operational, and financial data to deliver real-time insights that empower healthier decisions-at every level.
+      </p>
+
+      <div class="hero-cta" aria-label="Primary actions">
+        <a class="btn btn-primary" href="#contact">Book a Demo <span class="arrow">-&gt;</span></a>
+        <a class="btn btn-outline" href="#platform">Explore Platform <span class="arrow">-&gt;</span></a>
+      </div>
+
+      <div class="hero-feats" aria-label="Platform benefits">
+        {
+          heroFeatures.map((feature) => (
+            <div class="feat">
+              <span class="ic"><Icon name={feature.icon} size={15} /></span>
+              {feature.text}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <img class="hero-bg" src="/assets/helixcare-device.png" alt="HelixCare Pulse dashboard device with ECG pulse line and glossy floor reflection" width="1444" height="1089" />
+</section>

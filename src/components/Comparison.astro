@@ -1,0 +1,37 @@
+---
+import { comparisonColumns, comparisonRows } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="block" id="pricing" aria-labelledby="compare-title">
+  <div class="wrap">
+    <div class="sec-head sec-head-single">
+      <span class="eyebrow">Why HelixCare Pulse</span>
+      <h2 id="compare-title">Built for healthcare. Proven against the rest.</h2>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            {comparisonColumns.map((column, index) => <th scope="col" class={index === 0 ? "col-hl" : ""}>{column}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            comparisonRows.map((row) => (
+              <tr>
+                <th scope="row">{row[0]}</th>
+                <td class="col-hl">
+                  <span class="check"><Icon name="check" size={12} strokeWidth={3} /></span>
+                </td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

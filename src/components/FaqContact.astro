@@ -1,0 +1,67 @@
+---
+import { faqs } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="block faq-contact" id="contact" aria-label="FAQ and contact form">
+  <div class="wrap fc-grid">
+    <div class="panel" id="faq">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {
+          faqs.map((faq) => (
+            <article class={`faq-item ${faq.open ? "open" : ""}`} data-faq-item>
+              <button class="faq-q" type="button" aria-expanded={faq.open ? "true" : "false"}>
+                {faq.question}
+                <span class="faq-sign" aria-hidden="true">{faq.open ? "-" : "+"}</span>
+              </button>
+              <div class="faq-a">
+                <p>{faq.answer}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <a href="#contact" class="faq-link">View All FAQs <span class="arrow">-&gt;</span></a>
+    </div>
+
+    <div class="panel">
+      <span class="eyebrow">Contact Us</span>
+      <h2>Let's build better outcomes together.</h2>
+      <form name="demo-request" method="post" data-netlify="true">
+        <input type="hidden" name="form-name" value="demo-request" />
+        <div class="form-row">
+          <input class="field" type="text" name="name" placeholder="Full Name" autocomplete="name" required />
+          <input class="field" type="email" name="email" placeholder="Work Email" autocomplete="email" required />
+        </div>
+        <div class="form-row">
+          <input class="field" type="text" name="organization" placeholder="Organization" autocomplete="organization" />
+          <input class="field" type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" />
+        </div>
+        <div class="form-row">
+          <select class="field" name="role" aria-label="Your Role">
+            <option>Your Role</option>
+            <option>Clinician</option>
+            <option>Administrator</option>
+            <option>IT / Data</option>
+            <option>Executive</option>
+          </select>
+          <select class="field" name="interest" aria-label="I'm interested in">
+            <option>I'm interested in</option>
+            <option>Clinical Intelligence</option>
+            <option>Operational Excellence</option>
+            <option>Financial Performance</option>
+            <option>EHR Integration</option>
+          </select>
+        </div>
+        <textarea class="field" name="message" placeholder="How can we help?"></textarea>
+        <button class="submit" type="submit">Submit Request <span class="arrow">-&gt;</span></button>
+      </form>
+      <div class="privacy">
+        <Icon name="lock" size={14} />
+        We respect your privacy. Your information is safe with us.
+      </div>
+    </div>
+  </div>
+</section>

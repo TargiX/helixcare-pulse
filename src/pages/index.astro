@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import LogoMarquee from "../components/LogoMarquee.astro";
+import Stats from "../components/Stats.astro";
+import Solutions from "../components/Solutions.astro";
+import Comparison from "../components/Comparison.astro";
+import FaqContact from "../components/FaqContact.astro";
+import Footer from "../components/Footer.astro";
+import InteractionScript from "../components/InteractionScript.astro";
+---
+
+<BaseLayout
+  title="HelixCare Pulse"
+  description="HelixCare Pulse unifies clinical, operational, and financial data to deliver real-time healthcare intelligence."
+>
+  <Header />
+  <main>
+    <Hero />
+    <LogoMarquee />
+    <Stats />
+    <Solutions />
+    <Comparison />
+    <FaqContact />
+  </main>
+  <Footer />
+  <InteractionScript />
+</BaseLayout>

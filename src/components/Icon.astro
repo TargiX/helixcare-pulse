@@ -1,0 +1,138 @@
+---
+interface Props {
+  name: string;
+  size?: number;
+  strokeWidth?: number;
+}
+
+const { name, size = 20, strokeWidth = 2 } = Astro.props;
+const common = {
+  width: size,
+  height: size,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": strokeWidth,
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+};
+---
+
+{
+  name === "brand" && (
+    <svg {...common}>
+      <path d="M6 3c0 6 12 6 12 12M18 3c0 6-12 6-12 12M5 4h6M13 20h6M7 9h4M13 15h4" />
+    </svg>
+  )
+}
+{
+  name === "trend" && (
+    <svg {...common}>
+      <polyline points="3 17 9 11 13 15 21 7" />
+      <polyline points="15 7 21 7 21 13" />
+    </svg>
+  )
+}
+{
+  name === "shield" && (
+    <svg {...common}>
+      <path d="M12 2l8 4v5c0 5-3.5 9-8 11-4.5-2-8-6-8-11V6z" />
+    </svg>
+  )
+}
+{
+  name === "shield-check" && (
+    <svg {...common}>
+      <path d="M12 2l8 4v5c0 5-3.5 9-8 11-4.5-2-8-6-8-11V6z" />
+      <polyline points="9 12 11 14 15 9" />
+    </svg>
+  )
+}
+{
+  name === "pulse" && (
+    <svg {...common}>
+      <path d="M4 12h4l2-6 4 12 2-6h4" />
+    </svg>
+  )
+}
+{
+  name === "dollar" && (
+    <svg {...common}>
+      <line x1="12" y1="2" x2="12" y2="22" />
+      <path d="M17 6.5c0-2-2.2-3-5-3s-5 1-5 3.2 2.5 2.8 5 3.3 5 1 5 3.3-2.2 3.2-5 3.2-5-1.2-5-3" />
+    </svg>
+  )
+}
+{
+  name === "clock" && (
+    <svg {...common}>
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="12 7 12 12 16 14" />
+    </svg>
+  )
+}
+{
+  name === "check-circle" && (
+    <svg {...common}>
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="8 12 11 15 16 9" />
+    </svg>
+  )
+}
+{
+  name === "coin" && (
+    <svg {...common}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M14.5 9.5c0-1.2-1.2-1.8-2.5-1.8s-2.5.6-2.5 1.9 1.3 1.6 2.5 1.9 2.5.6 2.5 1.9-1.2 1.8-2.5 1.8-2.5-.6-2.5-1.8" />
+      <line x1="12" y1="6.2" x2="12" y2="7.7" />
+      <line x1="12" y1="16.3" x2="12" y2="17.8" />
+    </svg>
+  )
+}
+{
+  name === "network" && (
+    <svg {...common}>
+      <circle cx="6" cy="6" r="2.5" />
+      <circle cx="18" cy="6" r="2.5" />
+      <circle cx="6" cy="18" r="2.5" />
+      <circle cx="18" cy="18" r="2.5" />
+      <path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7" />
+    </svg>
+  )
+}
+{
+  name === "chevron-down" && (
+    <svg {...common}>
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  )
+}
+{
+  name === "chevron-left" && (
+    <svg {...common}>
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  )
+}
+{
+  name === "chevron-right" && (
+    <svg {...common}>
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  )
+}
+{
+  name === "lock" && (
+    <svg {...common}>
+      <rect x="4" y="11" width="16" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </svg>
+  )
+}
+{
+  name === "check" && (
+    <svg {...common}>
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  )
+}

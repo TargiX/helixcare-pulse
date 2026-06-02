@@ -1,0 +1,21 @@
+---
+import { stats } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="stats-sec" id="platform" aria-label="HelixCare Pulse performance statistics">
+  <div class="wrap">
+    <div class="stats">
+      {
+        stats.map((stat) => (
+          <article class="stat">
+            <span class="ic"><Icon name={stat.icon} size={20} /></span>
+            <div class="num">{stat.value}<span class="u">{stat.unit}</span></div>
+            <h3 class="lbl">{stat.label}</h3>
+            <p class="sub">{stat.sub}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

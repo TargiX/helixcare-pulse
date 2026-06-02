@@ -1,0 +1,35 @@
+---
+import { logos } from "../data/site";
+import Icon from "./Icon.astro";
+
+const loopedLogos = [...logos, ...logos, ...logos];
+---
+
+<section class="logos" id="resources" aria-labelledby="logos-title">
+  <div class="wrap">
+    <h2 class="logos-title" id="logos-title">Trusted by Innovative Healthcare Organizations</h2>
+    <div class="logos-row" data-logo-carousel>
+      <button class="car-arrow" type="button" aria-label="Scroll partner logos backward" data-logo-direction="reverse">
+        <Icon name="chevron-left" size={14} />
+      </button>
+      <div class="logos-viewport">
+        <div class="logos-track" data-logo-track>
+          {
+            loopedLogos.map((logo, index) => (
+              <div class="logo-item" aria-hidden={index >= logos.length}>
+                <span class="logo-glyph"></span>
+                <span class="logo-wordmark">
+                  <span class="logo-main">{logo.name}</span>
+                  <span class="logo-sub">{logo.subline}</span>
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <button class="car-arrow" type="button" aria-label="Scroll partner logos forward" data-logo-direction="normal">
+        <Icon name="chevron-right" size={14} />
+      </button>
+    </div>
+  </div>
+</section>

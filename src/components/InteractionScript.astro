@@ -1,0 +1,62 @@
+<script>
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const nav = document.querySelector("[data-nav]");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    nav?.toggleAttribute("data-open", !isOpen);
+  });
+
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle?.setAttribute("aria-expanded", "false");
+      nav.removeAttribute("data-open");
+    });
+  });
+
+  const logoCarousel = document.querySelector("[data-logo-carousel]");
+  const logoTrack = document.querySelector("[data-logo-track]");
+  let logoBoostTimer;
+
+  logoCarousel?.querySelectorAll("[data-logo-direction]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const direction = button.getAttribute("data-logo-direction") || "normal";
+      logoTrack?.style.setProperty("--logo-direction", direction);
+      logoCarousel.toggleAttribute("data-boost", true);
+      window.clearTimeout(logoBoostTimer);
+      logoBoostTimer = window.setTimeout(() => {
+        logoCarousel.removeAttribute("data-boost");
+      }, 1800);
+    });
+  });
+
+  document.querySelectorAll("[data-faq-item]").forEach((item) => {
+    const button = item.querySelector(".faq-q");
+    const answer = item.querySelector(".faq-a");
+    const sign = item.querySelector(".faq-sign");
+
+    const setState = (isOpen) => {
+      item.classList.toggle("open", isOpen);
+      button?.setAttribute("aria-expanded", String(isOpen));
+      if (answer) answer.style.maxHeight = isOpen ? `${answer.scrollHeight}px` : "";
+      if (sign) sign.textContent = isOpen ? "-" : "+";
+    };
+
+    setState(item.classList.contains("open"));
+
+    button?.addEventListener("click", () => {
+      const shouldOpen = !item.classList.contains("open");
+      document.querySelectorAll("[data-faq-item]").forEach((other) => {
+        const otherAnswer = other.querySelector(".faq-a");
+        const otherButton = other.querySelector(".faq-q");
+        const otherSign = other.querySelector(".faq-sign");
+        other.classList.remove("open");
+        otherButton?.setAttribute("aria-expanded", "false");
+        if (otherAnswer) otherAnswer.style.maxHeight = "";
+        if (otherSign) otherSign.textContent = "+";
+      });
+      setState(shouldOpen);
+    });
+  });
+</script>

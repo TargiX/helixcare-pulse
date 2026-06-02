@@ -1,0 +1,35 @@
+---
+import { navItems } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="HelixCare Pulse home">
+      <Icon name="brand" size={26} />
+      <span>HelixCare <span class="pulse">Pulse</span></span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" aria-label="Primary navigation" data-nav>
+      {
+        navItems.map((item) => (
+          <a href={item.href}>
+            {item.label}
+            {item.hasMenu && <Icon name="chevron-down" size={11} strokeWidth={1.5} />}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="nav-right">
+      <a class="btn btn-primary" href="#contact">Book a Demo</a>
+      <a href="#signin" class="signin">Sign In</a>
+    </div>
+  </div>
+</header>
