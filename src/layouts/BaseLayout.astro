@@ -18,9 +18,9 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg" />
     <title>{title}</title>
+    <script is:inline defer src="/traffic.js"></script>
   </head>
   <body>
     <slot />
-    <script>import "../analytics";</script>
   </body>
 </html>
